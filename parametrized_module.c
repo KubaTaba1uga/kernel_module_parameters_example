@@ -29,7 +29,8 @@ static int mp_print_level;
 //  and create file in /sys/module/parametrized_module/parameters/mp_print_level
 //  which user can use to controll the parameter during runetime. That's why we
 //  are passing 0660 as third arg to module_param. Third arg stands for
-//  permissions to the file automatically created for us.
+//  permissions to the file automatically created for us. If third arg is set to
+//  0 file is not created.
 module_param(mp_print_level, int, 0660);
 // This is just description for module param. We can see it when using `modinfo`
 //  utility. This is standard way of telling user what params are available and
