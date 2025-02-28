@@ -42,13 +42,14 @@ static int __init parameters_init(void) {
   for (i = 0; i < 5; i++) {
     switch (mp_print_level) {
     case 0:
-      pr_info("i=%d\n", i);
+      pr_info("Inserted: i=%d\n", i);
       break;
     case 1:
-      pr_info("i=%d, max=%d\n", i, 5);
+      pr_info("Inserted: i=%d, max=%d\n", i, 5);
       break;
     case 2:
-      pr_info("i=%d, max=%d, mp_print_level=%d\n", i, 5, mp_print_level);
+      pr_info("Inserted: i=%d, max=%d, mp_print_level=%d\n", i, 5,
+              mp_print_level);
       break;
     default:
       pr_err("Unrecognized print level: %d", mp_print_level);
@@ -59,7 +60,9 @@ static int __init parameters_init(void) {
   return 0;
 }
 
-static void __exit parameters_exit(void) {}
+static void __exit parameters_exit(void) {
+  pr_info("Removed: mp_print_level=%d\n", mp_print_level);
+}
 
 module_init(parameters_init);
 module_exit(parameters_exit);
